@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>root@journey — build / break</title>
+<meta name="description" content="Learning journey through web development and network penetration testing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="nav-logo">guest<span class="dot">@</span>learning<span class="dot">:~$</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#log">log</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+        <span class="terminal-title">whoami.sh</span>
+      </div>
+      <div class="terminal-body" id="typedBody">
+        <div class="line"><span class="prompt">guest@learning</span>:<span class="path">~</span>$ <span class="typed" id="typedLine"></span><span class="cursor" id="cursor"></span></div>
+      </div>
+    </div>
+
+    <div class="hero-identity">
+      <!-- Replace src below with your own photo file (e.g. "profile.jpg") placed in the same folder -->
+      <img src="profile.jpg" alt="Your Name" class="hero-avatar" onerror="this.style.display='none'">
+      <h1 class="hero-name">Your Name</h1>
+    </div>
+    <p class="hero-tagline"><span class="tag-build">building</span><span class="slash">/</span><span class="tag-break">breaking</span><span class="slash">—</span>a learner's log of web dev and network security, in public.</p>
+
+    <div class="hero-cta">
+      <a href="#log" class="btn btn-primary">read the log</a>
+      <a href="#projects" class="btn btn-ghost">see experiments</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-kicker">about</div>
+      <h2 class="section-title">Still early. Documenting it anyway.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm learning two things at once that turn out to reinforce each other: <strong>building</strong> web applications, and <strong>testing</strong> the networks and systems they run on. Understanding how things break makes me build them more carefully. Understanding how things are built makes me better at finding where they break.</p>
+        <p>I don't have a long portfolio yet — most of what's here is coursework, home-lab exercises, and small builds. What I do have is a consistent log of what I've studied, practiced, and shipped, updated as I go. Consider this page a work-in-progress by design.</p>
+      </div>
+      <div class="stat-list">
+        <div class="stat-item"><span class="stat-label">Focus</span><span class="stat-value">Web Dev + PenTest</span></div>
+        <div class="stat-item"><span class="stat-label">Status</span><span class="stat-value">Actively learning</span></div>
+        <div class="stat-item"><span class="stat-label">Lab env</span><span class="stat-value">TryHackMe / HTB / local VMs</span></div>
+        <div class="stat-item"><span class="stat-label">Log entries</span><span class="stat-value" id="logCount">—</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-kicker">skills</div>
+      <h2 class="section-title">Two tracks, one notebook</h2>
+    </div>
+    <div class="track-grid reveal">
+      <div class="track-card track-build">
+        <div class="track-head">
+          <h3>build/</h3>
+          <span class="track-status">web dev</span>
+        </div>
+        <div class="track-body">
+          <div class="skill-row"><span class="skill-name">HTML / CSS</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:65%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:60%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Responsive design</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:55%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Backend basics</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:35%"></div></div></div></div>
+        </div>
+      </div>
+      <div class="track-card track-break">
+        <div class="track-head">
+          <h3>break/</h3>
+          <span class="track-status">pentesting</span>
+        </div>
+        <div class="track-body">
+          <div class="skill-row"><span class="skill-name">Networking (TCP/IP)</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:60%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Linux fundamentals</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:65%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Nmap / recon</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:50%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Burp Suite / web attacks</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:40%"></div></div></div></div>
+          <div class="skill-row"><span class="skill-name">Privilege escalation</span><div class="skill-meta"><div class="bar"><div class="bar-fill" style="width:25%"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-kicker">learning log</div>
+      <h2 class="section-title">What I've been doing, in order</h2>
+    </div>
+
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="build">build</button>
+      <button class="filter-btn" data-filter="break">break</button>
+    </div>
+
+    <div class="log reveal" id="logList">
+      <div class="log-entry" data-tag="build">
+        <div class="log-meta"><span class="log-date">2026-08</span><span class="log-tag build">build</span></div>
+        <div class="log-title">Started this portfolio site</div>
+        <div class="log-desc">Hand-coded with HTML/CSS/JS — first real exercise in structuring a multi-section responsive layout from scratch.</div>
+      </div>
+      <div class="log-entry" data-tag="break">
+        <div class="log-meta"><span class="log-date">2026-08</span><span class="log-tag break">break</span></div>
+        <div class="log-title">Completed intro network fundamentals room</div>
+        <div class="log-desc">Worked through subnetting, OSI model, and packet capture basics using Wireshark on a home-lab VM.</div>
+      </div>
+      <div class="log-entry" data-tag="build">
+        <div class="log-meta"><span class="log-date">2026-07</span><span class="log-tag build">build</span></div>
+        <div class="log-title">Built first responsive layout with CSS Grid</div>
+        <div class="log-desc">Rebuilt an old float-based page using Grid and Flexbox to compare — cut the CSS roughly in half.</div>
+      </div>
+      <div class="log-entry" data-tag="break">
+        <div class="log-meta"><span class="log-date">2026-07</span><span class="log-tag break">break</span></div>
+        <div class="log-title">First Nmap scans against a lab target</div>
+        <div class="log-desc">Learned the difference between SYN, connect, and UDP scans, and how to read service/version detection output.</div>
+      </div>
+      <div class="log-entry" data-tag="build">
+        <div class="log-meta"><span class="log-date">2026-06</span><span class="log-tag build">build</span></div>
+        <div class="log-title">Learned JavaScript DOM manipulation</div>
+        <div class="log-desc">Small exercises: to-do list, form validation, and a click-driven quiz app to practice event listeners.</div>
+      </div>
+      <div class="log-entry" data-tag="break">
+        <div class="log-meta"><span class="log-date">2026-06</span><span class="log-tag break">break</span></div>
+        <div class="log-title">Set up a home pentest lab</div>
+        <div class="log-desc">Kali VM + a couple of deliberately vulnerable targets running in VirtualBox on an isolated host-only network.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-kicker">experiments</div>
+      <h2 class="section-title">Small things, actually finished</h2>
+    </div>
+    <div class="project-grid reveal">
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon build">build</span>
+          <span class="project-status">shipped</span>
+        </div>
+        <div class="project-title">This portfolio site</div>
+        <p class="project-desc">Static site built to document the learning process itself — no framework, just semantic HTML, CSS Grid, and vanilla JS.</p>
+        <div class="project-stack">
+          <span class="stack-chip">HTML</span><span class="stack-chip">CSS</span><span class="stack-chip">JS</span>
+        </div>
+        <a href="#" class="project-link">view source →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon build">build</span>
+          <span class="project-status">shipped</span>
+        </div>
+        <div class="project-title">To-do list app</div>
+        <p class="project-desc">LocalStorage-backed task list with add/edit/delete and filtering — first project using DOM events end to end.</p>
+        <div class="project-stack">
+          <span class="stack-chip">JavaScript</span><span class="stack-chip">CSS</span>
+        </div>
+        <a href="#" class="project-link">view source →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon break">break</span>
+          <span class="project-status">write-up</span>
+        </div>
+        <div class="project-title">Home lab recon walkthrough</div>
+        <p class="project-desc">Write-up of scanning and enumerating a deliberately vulnerable VM: Nmap → service enum → initial foothold notes.</p>
+        <div class="project-stack">
+          <span class="stack-chip">Nmap</span><span class="stack-chip">Linux</span>
+        </div>
+        <a href="#" class="project-link">read write-up →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon break">break</span>
+          <span class="project-status">in progress</span>
+        </div>
+        <div class="project-title">TryHackMe progress notes</div>
+        <p class="project-desc">Running notes from beginner security rooms — networking, Linux privilege escalation, and web app basics.</p>
+        <div class="project-stack">
+          <span class="stack-chip">THM</span><span class="stack-chip">Notes</span>
+        </div>
+        <a href="#" class="project-link">view notes →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon build">build</span>
+          <span class="project-status">in progress</span>
+        </div>
+        <div class="project-title">Landing page clone practice</div>
+        <p class="project-desc">Recreating real landing pages from scratch to practice layout precision, typography, and responsive breakpoints.</p>
+        <div class="project-stack">
+          <span class="stack-chip">HTML</span><span class="stack-chip">CSS</span>
+        </div>
+        <a href="#" class="project-link">view source →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon break">break</span>
+          <span class="project-status">planned</span>
+        </div>
+        <div class="project-title">Vulnerable web app walkthrough</div>
+        <p class="project-desc">Next up: working through a deliberately vulnerable web app (SQLi, XSS, auth bypass) and documenting each step.</p>
+        <div class="project-stack">
+          <span class="stack-chip">Burp Suite</span><span class="stack-chip">Web</span>
+        </div>
+        <a href="#" class="project-link">coming soon →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <div class="section-kicker">contact</div>
+      <h2 class="section-title">Say hi, or send feedback</h2>
+      <p class="contact-sub">Open to internships, junior roles, and anyone who wants to point out something in my log that's wrong — that's how I learn faster.</p>
+      <div class="contact-links">
+        <a href="mailto:you@example.com" class="btn btn-primary">email me</a>
+        <a href="https://github.com/yourusername" class="btn btn-ghost">github</a>
+        <a href="https://linkedin.com/in/yourusername" class="btn btn-ghost">linkedin</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>built by hand — HTML / CSS / JS — last updated 2026-08</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
