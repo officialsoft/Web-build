@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties | PrimeVista Property</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/catalog.css">
+</head>
+<body>
+
+<!-- ===== HEADER (shared with the rest of the site) ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon">🏡</span>
+      <span class="logo-text">PrimeVista<br><small>PROPERTY</small></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="../index.html">Home</a>
+      <a href="properties.html" class="active">Properties</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="phone-block">
+        <span class="phone-icon">📞</span>
+        <div>
+          <div class="phone-number">+234 801 234 5678</div>
+          <div class="phone-label">Call us anytime</div>
+        </div>
+      </div>
+      <a href="cart.html" class="icon-link" aria-label="Wishlist">♡</a>
+      <a href="login.html" id="authAreaLink" data-profile-href="profile.html" class="btn btn-outline-small">Login</a>
+      <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== CATALOG CONTENT (this is your part of the project) ===== -->
+<div class="catalog-page">
+  <main>
+
+    <section class="control-bar">
+      <div class="control-inner">
+        <div class="search-wrap">
+          <input type="text" id="searchInput" placeholder="Search by name or location…" aria-label="Search listings">
+        </div>
+
+        <nav class="tab-plan" aria-label="Category filter">
+          <button class="tab active" data-filter="all">
+            <span class="tab-index">00</span> All
+          </button>
+          <button class="tab" data-filter="sale">
+            <span class="tab-index">01</span> Houses · Sale
+          </button>
+          <button class="tab" data-filter="rent">
+            <span class="tab-index">02</span> Houses · Rent
+          </button>
+          <button class="tab" data-filter="land">
+            <span class="tab-index">03</span> Land
+          </button>
+          <button class="tab" data-filter="materials">
+            <span class="tab-index">04</span> Materials
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <section class="results-bar">
+      <div class="control-inner">
+        <p id="resultsCount" class="results-count">Showing all listings</p>
+      </div>
+    </section>
+
+    <section class="catalog-grid" id="catalogGrid">
+      <!-- Listing cards injected by catalog.js -->
+    </section>
+
+    <p class="empty-state" id="emptyState" hidden>
+      Nothing matches that search — try a different name, location, or category.
+    </p>
+
+  </main>
+
+  <!-- Inquiry Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close inquiry form">×</button>
+      <p class="modal-eyebrow" id="modalEyebrow">INQUIRY</p>
+      <h2 class="modal-title" id="modalTitle">Listing name</h2>
+      <p class="modal-ref" id="modalRef">REF—0000</p>
+
+      <form id="inquiryForm">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="3" placeholder="I'd like more details about this listing…"></textarea>
+
+        <button type="submit" class="submit-btn">Send inquiry</button>
+        <p class="form-note">This form doesn't send anywhere yet — wire it to your backend when it's ready.</p>
+      </form>
+
+      <div class="modal-success" id="modalSuccess" hidden>
+        <p class="success-mark">✓</p>
+        <p>Inquiry captured for <strong id="successName"></strong>. Your team will follow up once the form is connected to a server.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRUST BAR (shared with the rest of the site) ===== -->
+<section class="trust-bar">
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <span class="trust-icon">🛡️</span>
+      <div><h4>Verified Properties</h4><p>All properties are verified for your peace of mind.</p></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      <div><h4>Trusted by Thousands</h4><p>Join thousands of satisfied clients across Nigeria.</p></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📄</span>
+      <div><h4>Easy Process</h4><p>Simple and transparent property purchasing.</p></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🎧</span>
+      <div><h4>24/7 Support</h4><p>We are here to help you anytime, anywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<script src="../js/main.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/catalog-data.js"></script>
+<script src="../js/catalog.js"></script>
+</body>
+</html>

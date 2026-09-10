@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeVista Property | Find Your Perfect Property</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🏡</span>
+      <span class="logo-text">PrimeVista<br><small>PROPERTY</small></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="active">Home</a>
+      <a href="pages/properties.html">Properties</a>
+      <a href="pages/about.html">About Us</a>
+      <a href="pages/services.html">Services</a>
+      <a href="pages/contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="phone-block">
+        <span class="phone-icon">📞</span>
+        <div>
+          <div class="phone-number">+234 801 234 5678</div>
+          <div class="phone-label">Call us anytime</div>
+        </div>
+      </div>
+      <a href="pages/cart.html" class="icon-link" aria-label="Wishlist">♡</a>
+      <a href="pages/login.html" id="authAreaLink" data-profile-href="pages/profile.html" class="btn btn-outline-small">Login</a>
+      <a href="pages/contact.html" class="btn btn-primary">Get in Touch</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">FIND. BUY. OWN.</p>
+      <h1>Find Your Perfect Property With <span class="brand-italic">PrimeVista</span>.</h1>
+      <p class="hero-sub">Discover premium houses and land in the best locations. Your future, our priority.</p>
+      <div class="hero-buttons">
+        <a href="pages/properties.html" class="btn btn-cream">Explore Properties</a>
+        <a href="pages/about.html" class="btn btn-outline-white">Learn More →</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/hero-house.jpg" alt="Premium 5-Bedroom Detached House, Maitama, Abuja" class="hero-photo">
+    </div>
+  </div>
+
+  <!-- Search bar -->
+  <div class="container">
+    <form class="search-bar" action="pages/properties.html" method="get">
+      <div class="search-field">
+        <label for="loc">Search Location</label>
+        <input type="text" id="loc" name="location" placeholder="Enter city, area or state">
+      </div>
+      <div class="search-field">
+        <label for="type">Property Type</label>
+        <select id="type" name="type">
+          <option>All Types</option>
+          <option>House</option>
+          <option>Land</option>
+          <option>Apartment</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="price">Price Range</label>
+        <select id="price" name="price">
+          <option>Any Price</option>
+          <option>Under ₦20,000,000</option>
+          <option>₦20,000,000 - ₦100,000,000</option>
+          <option>Above ₦100,000,000</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="purpose">Purpose</label>
+        <select id="purpose" name="purpose">
+          <option>Buy</option>
+          <option>Rent</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-dark search-btn">🔍 Search Properties</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES + FEATURED ===== -->
+<section class="content-section">
+  <div class="container two-col">
+
+    <div class="categories-col">
+      <p class="eyebrow">BROWSE BY CATEGORY</p>
+      <h2>Explore Property Options</h2>
+      <div class="category-grid">
+        <a href="pages/properties.html?type=houses-sale" class="category-card">
+          <span class="cat-icon">🏠</span>
+          <span>Houses<br>For Sale</span>
+        </a>
+        <a href="pages/properties.html?type=land" class="category-card">
+          <span class="cat-icon">📍</span>
+          <span>Land<br>For Sale</span>
+        </a>
+        <a href="pages/properties.html?type=apartments" class="category-card">
+          <span class="cat-icon">🏢</span>
+          <span>Apartments<br>For Sale</span>
+        </a>
+        <a href="pages/properties.html?type=houses-rent" class="category-card">
+          <span class="cat-icon">🏘️</span>
+          <span>Houses<br>For Rent</span>
+        </a>
+      </div>
+      <a href="pages/properties.html" class="btn btn-dark">View All Properties →</a>
+    </div>
+
+    <div class="featured-col">
+      <div class="featured-header">
+        <div>
+          <p class="eyebrow">FEATURED PROPERTIES</p>
+          <h2>Handpicked For You</h2>
+        </div>
+        <div class="carousel-arrows">
+          <button aria-label="Previous">‹</button>
+          <button aria-label="Next">›</button>
+        </div>
+      </div>
+
+      <div class="property-grid">
+        <!-- Property card 1 -->
+        <article class="property-card">
+          <div class="property-image">
+            <span class="badge badge-rent">For Rent</span>
+            <span class="fav-icon">♡</span>
+            <img src="images/properties/apartment-lugbe.jpg" alt="Affordable Two Bedroom Apartment, Lugbe, Abuja" class="card-photo">
+          </div>
+          <div class="property-body">
+            <h3>Affordable 2 Bedroom Apartment</h3>
+            <p class="location">📍 Lugbe, Abuja</p>
+            <p class="price">₦2,500,000 / Year</p>
+          </div>
+        </article>
+
+        <!-- Property card 2 -->
+        <article class="property-card">
+          <div class="property-image">
+            <span class="badge badge-sale">For Sale</span>
+            <span class="fav-icon">♡</span>
+            <img src="images/properties/land-karu.jpg" alt="Residential Land, Karu, Nasarawa State" class="card-photo">
+          </div>
+          <div class="property-body">
+            <h3>500sqm Residential Land</h3>
+            <p class="location">📍 Karu, Nasarawa State</p>
+            <p class="price">₦8,500,000</p>
+          </div>
+        </article>
+
+        <!-- Property card 3 -->
+        <article class="property-card">
+          <div class="property-image">
+            <span class="badge badge-rent">For Rent</span>
+            <span class="fav-icon">♡</span>
+            <img src="images/properties/office-cbd.jpg" alt="Commercial Office Space, Central Business District, Abuja" class="card-photo">
+          </div>
+          <div class="property-body">
+            <h3>Commercial Office Space</h3>
+            <p class="location">📍 Central Business District, Abuja</p>
+            <p class="price">₦25,000,000 / Year</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section class="trust-bar">
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <span class="trust-icon">🛡️</span>
+      <div>
+        <h4>Verified Properties</h4>
+        <p>All properties are verified for your peace of mind.</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      <div>
+        <h4>Trusted by Thousands</h4>
+        <p>Join thousands of satisfied clients across Nigeria.</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📄</span>
+      <div>
+        <h4>Easy Process</h4>
+        <p>Simple and transparent property purchasing.</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🎧</span>
+      <div>
+        <h4>24/7 Support</h4>
+        <p>We are here to help you anytime, anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

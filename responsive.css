@@ -1,0 +1,46 @@
+/* responsive.css
+   Breakpoints for the About Us and Contact page layouts (pages/about.html,
+   pages/contact.html). Base layout rules live in style.css — this file only
+   adjusts them for smaller screens, so it's included alongside style.css.
+*/
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  .about-hero-inner { grid-template-columns: 1fr; }
+  .about-hero-image { order: -1; }
+
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .why-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-info { flex-direction: row; flex-wrap: wrap; }
+  .info-card { flex: 1 1 260px; }
+}
+
+/* ---- Small tablet / large phone ---- */
+@media (max-width: 860px) {
+  .mv-grid { grid-template-columns: 1fr; }
+
+  .cta-inner { flex-direction: column; text-align: center; }
+  .cta-inner p { margin: 0 auto; }
+
+  .page-hero h1 { font-size: 1.8rem; }
+  .about-hero-text h1 { font-size: 2rem; }
+  .about-hero-image .hero-photo { height: 240px; }
+}
+
+/* ---- Phone ---- */
+@media (max-width: 560px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .form-row-2 { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 22px; }
+  .contact-info { flex-direction: column; }
+
+  .section-title { font-size: 1.6rem; }
+  .cta-buttons { flex-direction: column; width: 100%; }
+  .cta-buttons .btn { text-align: center; }
+}

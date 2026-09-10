@@ -1,0 +1,359 @@
+:root {
+  --ink: #14181F;
+  --surface: #1E242E;
+  --surface-line: #2C3340;
+  --paper: #F6F3EC;
+  --paper-dim: #E4DFD2;
+  --clay: #C4622D;
+  --clay-dim: #9C4C22;
+  --sage: #7C8A72;
+  --text-light: #EDEAE2;
+  --text-dim: #A7ADB8;
+
+  --bg-page: #F6F3EC;
+  --card-bg: #083227;
+  --card-ink: #F3EFE4;
+  --card-muted: #9FB3A8;
+  --card-line: rgba(243, 239, 228, 0.16);
+  --page-muted: #6B6456;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+/* This page's header/nav now comes from the site-wide css/style.css
+   (shared with index.html, login.html, etc). The rules below only style
+   the catalog content itself, scoped inside .catalog-page so nothing
+   here touches the shared header, nav, or buttons. */
+.catalog-page {
+  background: var(--bg-page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+/* ---------- Controls ---------- */
+.control-bar {
+  border-bottom: 1px solid var(--surface-line);
+  background: var(--surface);
+}
+.control-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+.search-wrap { margin-bottom: 16px; }
+#searchInput {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ink);
+  border: 1px solid var(--surface-line);
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 3px;
+}
+#searchInput:focus {
+  outline: 2px solid var(--clay);
+  outline-offset: 1px;
+}
+#searchInput::placeholder { color: var(--text-dim); }
+
+.tab-plan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tab {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--surface-line);
+  border-radius: 3px;
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .15s ease, color .15s ease;
+}
+.tab-index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--sage);
+}
+.tab:hover { color: var(--text-light); border-color: var(--text-dim); }
+.tab.active {
+  color: var(--ink);
+  background: var(--clay);
+  border-color: var(--clay);
+}
+.tab.active .tab-index { color: var(--ink); opacity: .6; }
+.tab:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+
+/* ---------- Results bar ---------- */
+.results-bar { background: var(--ink); }
+.results-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin: 14px 0 0;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Grid ---------- */
+.catalog-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 24px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, border-color .2s ease;
+  animation: cardIn .4s ease both;
+}
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.35);
+  border-color: var(--clay);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-image {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform .35s ease;
+}
+.card:hover .card-image { transform: scale(1.08); }
+
+.card-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  background: var(--ink);
+  color: var(--text-light);
+  padding: 4px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transition: background .2s ease;
+}
+.card:hover .card-tag { background: var(--clay); }
+
+.card-body {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  color: var(--card-ink);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.25;
+  color: var(--card-ink);
+}
+.card-location {
+  font-size: 0.85rem;
+  color: var(--card-muted);
+  margin: -4px 0 0;
+}
+
+.card-specs {
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clay);
+  border-top: 1px dashed var(--card-line);
+  border-bottom: 1px dashed var(--card-line);
+  padding: 8px 0;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.card-price {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--card-ink);
+}
+.card-price small {
+  color: var(--card-muted);
+  font-size: 0.7rem;
+}
+
+.inquire-btn {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.82rem;
+  background: transparent;
+  color: var(--clay);
+  border: 1px solid var(--clay);
+  border-radius: 3px;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+.inquire-btn:hover { background: var(--clay); color: var(--paper); transform: scale(1.05); }
+.inquire-btn:active { transform: scale(0.97); }
+.inquire-btn:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--page-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+} 
+.modal-backdrop[hidden] {
+  display: none;
+}
+.modal {
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+  max-width: 420px;
+  border-radius: 5px;
+  padding: 28px 26px 24px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+}
+.modal-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--clay-dim);
+  margin: 0 0 6px;
+}
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 4px;
+}
+.modal-ref {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #6b6456;
+  margin: 0 0 18px;
+}
+
+#inquiryForm { display: flex; flex-direction: column; gap: 4px; }
+#inquiryForm label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #4a453a;
+}
+#inquiryForm input, #inquiryForm textarea {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 9px 10px;
+  border: 1px solid var(--paper-dim);
+  background: #fff;
+  border-radius: 3px;
+  resize: vertical;
+}
+#inquiryForm input:focus, #inquiryForm textarea:focus {
+  outline: 2px solid var(--clay);
+  outline-offset: 1px;
+}
+.submit-btn {
+  margin-top: 16px;
+  background: var(--clay);
+  color: var(--paper);
+  border: none;
+  border-radius: 3px;
+  padding: 11px 16px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.submit-btn:hover { background: var(--clay-dim); }
+.form-note {
+  font-size: 0.7rem;
+  color: #8a8375;
+  margin: 10px 0 0;
+}
+
+.modal-success { text-align: center; padding: 10px 0; }
+.success-mark {
+  font-size: 1.6rem;
+  color: var(--sage);
+  margin: 0 0 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+@media (max-width: 560px) {
+  .catalog-grid { grid-template-columns: 1fr; }
+  .card-specs { flex-wrap: wrap; }
+}
+
+/* Stagger the card entrance animation for the first couple rows */
+.catalog-grid .card:nth-child(1) { animation-delay: .02s; }
+.catalog-grid .card:nth-child(2) { animation-delay: .05s; }
+.catalog-grid .card:nth-child(3) { animation-delay: .08s; }
+.catalog-grid .card:nth-child(4) { animation-delay: .11s; }
+.catalog-grid .card:nth-child(5) { animation-delay: .14s; }
+.catalog-grid .card:nth-child(6) { animation-delay: .17s; }
+.catalog-grid .card:nth-child(7) { animation-delay: .20s; }
+.catalog-grid .card:nth-child(8) { animation-delay: .23s; }
